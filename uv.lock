@@ -414,12 +414,12 @@ wheels = [
 ]
 
 [[package]]
-name = "obo-cache"
+name = "ab-cache"
 version = "0.1.0"
-source = { editable = "../../obo_core/obo-cache" }
+source = { editable = "../../ab_core/ab-cache" }
 dependencies = [
     { name = "diskcache" },
-    { name = "obo-dependency" },
+    { name = "ab-dependency" },
     { name = "orjson" },
     { name = "pydantic" },
     { name = "slugify" },
@@ -430,7 +430,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "diskcache", specifier = ">=5.6.3,<6" },
-    { name = "obo-dependency", editable = "../../obo_core/obo-dependency" },
+    { name = "ab-dependency", editable = "../../ab_core/ab-dependency" },
     { name = "orjson", specifier = ">=3.11.2,<4" },
     { name = "pydantic", specifier = ">=2.11.7,<3" },
     { name = "redis", marker = "extra == 'all'", specifier = ">=6.4.0,<7" },
@@ -445,17 +445,17 @@ provides-extras = ["redis-sync", "redis-async", "all"]
 [package.metadata.requires-dev]
 dev = [
     { name = "debugpy", specifier = ">=1.8.14,<2" },
-    { name = "obo-test-fixtures", editable = "../../obo_test/obo-test-fixtures" },
+    { name = "ab-test-fixtures", editable = "../../ab_test/ab-test-fixtures" },
     { name = "pre-commit", specifier = ">=4.2.0,<5" },
     { name = "ruff", specifier = ">=0.11.13,<0.12" },
 ]
 
 [[package]]
-name = "obo-database"
+name = "ab-database"
 version = "0.1.0"
-source = { editable = "../../obo_core/obo-database" }
+source = { editable = "../../ab_core/ab-database" }
 dependencies = [
-    { name = "obo-dependency" },
+    { name = "ab-dependency" },
     { name = "pydantic" },
     { name = "slugify" },
     { name = "sqlmodel" },
@@ -496,7 +496,7 @@ requires-dist = [
     { name = "mariadb", marker = "extra == 'mariadb-sync'", specifier = ">=1.1.12,<2" },
     { name = "mysqlclient", marker = "extra == 'all'", specifier = ">=2.2.7,<3" },
     { name = "mysqlclient", marker = "extra == 'mysql-sync'", specifier = ">=2.2.7,<3" },
-    { name = "obo-dependency", editable = "../../obo_core/obo-dependency" },
+    { name = "ab-dependency", editable = "../../ab_core/ab-dependency" },
     { name = "oracledb", marker = "extra == 'all'", specifier = ">=3.1.1,<4" },
     { name = "oracledb", marker = "extra == 'oracle-sync'", specifier = ">=3.1.1,<4" },
     { name = "psycopg2", marker = "extra == 'all'", specifier = ">=2.9.10,<3" },
@@ -525,15 +525,15 @@ provides-extras = ["sqlite-async", "postgres-sync", "postgres-async", "mysql-syn
 [package.metadata.requires-dev]
 dev = [
     { name = "debugpy", specifier = ">=1.8.14,<2" },
-    { name = "obo-test-fixtures", editable = "../../obo_test/obo-test-fixtures" },
+    { name = "ab-test-fixtures", editable = "../../ab_test/ab-test-fixtures" },
     { name = "pre-commit", specifier = ">=4.2.0,<5" },
     { name = "ruff", specifier = ">=0.11.13,<0.12" },
 ]
 
 [[package]]
-name = "obo-dependency"
+name = "ab-dependency"
 version = "0.1.0"
-source = { editable = "../../obo_core/obo-dependency" }
+source = { editable = "../../ab_core/ab-dependency" }
 dependencies = [
     { name = "deepdiff" },
     { name = "generic-preserver" },
@@ -556,24 +556,24 @@ dev = [
     { name = "debugpy", specifier = ">=1.8.14,<2" },
     { name = "fastapi", specifier = ">=0.78.0" },
     { name = "httpx", specifier = ">=0.28.1,<0.29" },
-    { name = "obo-test-fixtures", editable = "../../obo_test/obo-test-fixtures" },
+    { name = "ab-test-fixtures", editable = "../../ab_test/ab-test-fixtures" },
 ]
 
 [[package]]
-name = "obo-test-fixtures"
+name = "ab-test-fixtures"
 version = "0.1.0"
-source = { editable = "../../obo_test/obo-test-fixtures" }
+source = { editable = "../../ab_test/ab-test-fixtures" }
 dependencies = [
-    { name = "obo-cache" },
-    { name = "obo-database", extra = ["sqlite-async"] },
+    { name = "ab-cache" },
+    { name = "ab-database", extra = ["sqlite-async"] },
     { name = "pytest" },
     { name = "pytest-asyncio" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "obo-cache", editable = "../../obo_core/obo-cache" },
-    { name = "obo-database", extras = ["sqlite-async"], editable = "../../obo_core/obo-database" },
+    { name = "ab-cache", editable = "../../ab_core/ab-cache" },
+    { name = "ab-database", extras = ["sqlite-async"], editable = "../../ab_core/ab-database" },
     { name = "pytest", specifier = ">=8.4.0,<9" },
     { name = "pytest-asyncio", specifier = ">=1.0.0,<2" },
 ]
@@ -586,14 +586,14 @@ dev = [
 ]
 
 [[package]]
-name = "obo-token-validator"
+name = "ab-token-validator"
 version = "0.1.0"
-source = { editable = "../../obo_core/obo-token-validator" }
+source = { editable = "../../ab_core/ab-token-validator" }
 dependencies = [
     { name = "aiocache" },
     { name = "fastapi" },
     { name = "httpx" },
-    { name = "obo-dependency" },
+    { name = "ab-dependency" },
     { name = "pydantic" },
     { name = "python-jose", extra = ["cryptography"] },
     { name = "uuid7" },
@@ -605,7 +605,7 @@ requires-dist = [
     { name = "aiocache", specifier = ">=0.12.3,<0.13" },
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
     { name = "httpx", specifier = ">=0.28.1,<0.29" },
-    { name = "obo-dependency", editable = "../../obo_core/obo-dependency" },
+    { name = "ab-dependency", editable = "../../ab_core/ab-dependency" },
     { name = "pydantic", specifier = ">=2.11.7,<3" },
     { name = "python-jose", extras = ["cryptography"], specifier = ">=3.5.0,<4" },
     { name = "uuid7", specifier = ">=0.1.0,<0.2" },
@@ -615,16 +615,16 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "debugpy", specifier = ">=1.8.14,<2" },
-    { name = "obo-test-fixtures", editable = "../../obo_test/obo-test-fixtures" },
+    { name = "ab-test-fixtures", editable = "../../ab_test/ab-test-fixtures" },
 ]
 
 [[package]]
-name = "obo-token-validator-service"
+name = "ab-token-validator-service"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
-    { name = "obo-token-validator" },
+    { name = "ab-token-validator" },
     { name = "pydantic" },
     { name = "uvicorn" },
 ]
@@ -632,7 +632,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "debugpy" },
-    { name = "obo-test-fixtures" },
+    { name = "ab-test-fixtures" },
     { name = "pre-commit" },
     { name = "ruff" },
 ]
@@ -640,7 +640,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
-    { name = "obo-token-validator", editable = "../../obo_core/obo-token-validator" },
+    { name = "ab-token-validator", editable = "../../ab_core/ab-token-validator" },
     { name = "pydantic", specifier = ">=2.11.7,<3" },
     { name = "uvicorn", specifier = ">=0.35.0,<0.36" },
 ]
@@ -648,7 +648,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "debugpy", specifier = ">=1.8.14,<2" },
-    { name = "obo-test-fixtures", editable = "../../obo_test/obo-test-fixtures" },
+    { name = "ab-test-fixtures", editable = "../../ab_test/ab-test-fixtures" },
     { name = "pre-commit", specifier = ">=4.2.0,<5" },
     { name = "ruff", specifier = ">=0.11.13,<0.12" },
 ]

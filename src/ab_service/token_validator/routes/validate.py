@@ -1,9 +1,9 @@
 from typing import Annotated
 
 from fastapi import APIRouter
-from obo_core.dependency import Depends
-from obo_core.token_validator.schema.validated_token import ValidatedOIDCClaims
-from obo_core.token_validator.token_validators import TokenValidator
+from ab_core.dependency import Depends
+from ab_core.token_validator.schema.validated_token import ValidatedOIDCClaims
+from ab_core.token_validator.token_validators import TokenValidator
 
 from ..schema import TokenRequest
 

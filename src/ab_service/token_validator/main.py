@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from jose import ExpiredSignatureError, JWTError
 
-from obo_service.token_validator.routes.validate import router as validate_router
+from ab_service.token_validator.routes.validate import router as validate_router
 
 app = FastAPI()
 app.include_router(validate_router)
