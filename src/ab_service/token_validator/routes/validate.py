@@ -1,11 +1,13 @@
+"""Router for token validation."""
+
 from typing import Annotated
 
-from fastapi import APIRouter
 from ab_core.dependency import Depends
 from ab_core.token_validator.schema.validated_token import ValidatedOIDCClaims
 from ab_core.token_validator.token_validators import TokenValidator
+from fastapi import APIRouter
 
-from ..schema import TokenRequest
+from ..schema import ValidateTokenRequest
 
 router = APIRouter(
     prefix="/validate",
@@ -18,10 +20,8 @@ router = APIRouter(
     response_model=ValidatedOIDCClaims,
 )
 async def validate_token(
-    request: TokenRequest,
-    token_validator: Annotated[
-        TokenValidator,
-        Depends(TokenValidator, persist=True),
-    ],
+    request: ValidateTokenRequest,
+    token_validator: Annotated[TokenValidator, Depends(TokenValidator, persist=True)],
 ):
+    """Validate a token."""
     return await token_validator.validate(request.token)
