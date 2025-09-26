@@ -1,22 +1,12 @@
-[project]
-authors = [{email = "53892067+mattcoulter7@users.noreply.github.com", name = "Matthew Coulter"}]
-dependencies = [
-  "fastapi>=0.115.14,<0.116",
-  "ab-token-validator",
-  "pydantic>=2.11.7,<3",
-  "uvicorn>=0.35.0,<0.36"
-]
-description = ""
-name = "ab-token-validator-service"
-readme = "README.md"
-requires-python = ">=3.12, <4"
-version = "0.1.1"
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
 
 [dependency-groups]
 dev = [
+  "ab-test-fixtures",
   "debugpy>=1.8.14,<2",
   "isort>=6.0.1,<7",
-  "ab-test-fixtures",
   "pre-commit>=4.2.0,<5",
   "pytest-asyncio>=1.0.0,<2",
   "pytest-cov>=6.2.1,<7",
@@ -25,9 +15,19 @@ dev = [
   "tox>=4.27.0,<5"
 ]
 
-[tool.uv.sources]
-ab-token-validator  = { git = "https://@github.com/auth-broker/package-token-validator", tag= "0.1.1" }
-ab-test-fixtures  = { git = "https://@github.com/auth-broker/package-test-fixtures", tag= "0.1.1" }
+[project]
+authors = [{email = "53892067+mattcoulter7@users.noreply.github.com", name = "Matthew Coulter"}]
+dependencies = [
+  "ab-token-validator",
+  "fastapi>=0.115.14,<0.116",
+  "pydantic>=2.11.7,<3",
+  "uvicorn>=0.35.0,<0.36"
+]
+description = ""
+name = "ab-token-validator-service"
+readme = "README.md"
+requires-python = ">=3.12, <4"
+version = "0.1.1"
 
 [tool.hatch.build.targets.sdist]
 include = ["src/ab_service"]
@@ -68,3 +68,7 @@ select = [
   "UP", # pyupgrade
   "W" # pycodestyle warnings
 ]
+
+[tool.uv.sources]
+ab-test-fixtures = {git = "https://@github.com/auth-broker/package-test-fixtures", tag = "0.1.1"}
+ab-token-validator = {git = "https://@github.com/auth-broker/package-token-validator", tag = "0.1.1"}
