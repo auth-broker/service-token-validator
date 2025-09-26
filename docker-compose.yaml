@@ -3,7 +3,7 @@ services:
     build:
       context: .
       secrets:
-        - github_token   # points to a file created by compose from the secret below
+        - github_token
     volumes:
       - ./src:/package/src
       - ./tests:/package/tests
@@ -12,4 +12,4 @@ services:
 
 secrets:
   github_token:
-    environment: GITHUB_TOKEN  # compose will read the token value from your env
+    environment: GITHUB_TOKEN

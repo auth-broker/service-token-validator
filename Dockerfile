@@ -30,7 +30,7 @@ RUN --mount=type=secret,id=github_token,target=/run/secrets/github_token,require
 
 # Install remaining project
 COPY src ./src
-COPY tests    ./tests
+COPY tests ./tests
 RUN uv sync
 
 # Default entrypoint for running FastAPI services
