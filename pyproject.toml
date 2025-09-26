@@ -25,6 +25,10 @@ dev = [
   "tox>=4.27.0,<5"
 ]
 
+[tool.uv.sources]
+ab-token-validator  = { git = "https://@github.com/auth-broker/package-token-validator", rev = "0.1.0" }
+ab-test-fixtures  = { git = "https://@github.com/auth-broker/package-test-fixtures", rev = "0.1.0" }
+
 [tool.hatch.build.targets.sdist]
 include = ["src/ab_service"]
 
