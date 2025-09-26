@@ -4,6 +4,12 @@ services:
       context: .
       secrets:
         - github_token
+    environment:
+      TOKEN_VALIDATOR_TYPE: "${TOKEN_VALIDATOR_TYPE:-}"
+      TOKEN_VALIDATOR_OIDC_ISSUER: "${TOKEN_VALIDATOR_OIDC_ISSUER:-}"
+      TOKEN_VALIDATOR_OIDC_JWKS_URI: "${TOKEN_VALIDATOR_OIDC_JWKS_URI:-}"
+      TOKEN_VALIDATOR_OIDC_AUDIENCE: "${TOKEN_VALIDATOR_OIDC_AUDIENCE:-}"
+      TOKEN_VALIDATOR_OIDC_ALGORITHMS: '${TOKEN_VALIDATOR_OIDC_ALGORITHMS:-[]}'
     volumes:
       - ./src:/package/src
       - ./tests:/package/tests
