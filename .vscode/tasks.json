@@ -63,13 +63,6 @@
             "command": "make publish",
             "group": "build",
             "detail": "Build & publish the package to Nexus"
-        },
-        {
-            "label": "help",
-            "type": "shell",
-            "command": "make help",
-            "group": "build",
-            "detail": "Show make targets help"
         }
     ]
 }
