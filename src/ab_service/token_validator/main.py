@@ -1,12 +1,29 @@
 """Main application for the token validator service."""
 
+from contextlib import asynccontextmanager
+from typing import Annotated
+
+from ab_core.dependency import Depends, inject
+from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from jose import ExpiredSignatureError, JWTError
 
 from ab_service.token_validator.routes.validate import router as validate_router
 
-app = FastAPI()
+
+@inject
+@asynccontextmanager
+async def lifespan(
+    _app: FastAPI,
+    logging_config: Annotated[LoggingConfig, Depends(LoggingConfig, persist=True)],
+):
+    """Lifespan context manager to handle startup and shutdown events."""
+    logging_config.apply()
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 app.include_router(validate_router)
 
 
