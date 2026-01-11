@@ -24,4 +24,4 @@ async def validate_token(
     token_validator: Annotated[TokenValidator, Depends(TokenValidator, persist=True)],
 ):
     """Validate a token."""
-    return await token_validator.validate(request.token)
+    return await token_validator.validate(request.token.get_secret_value())
