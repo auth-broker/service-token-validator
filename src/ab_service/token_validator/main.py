@@ -3,11 +3,11 @@
 from contextlib import asynccontextmanager
 from typing import Annotated
 
+import jwt.exceptions
 from ab_core.dependency import Depends, inject
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from jose import ExpiredSignatureError, JWTError
 
 from ab_service.token_validator.routes.validate import router as validate_router
 
@@ -27,8 +27,8 @@ app = FastAPI(lifespan=lifespan)
 app.include_router(validate_router)
 
 
-@app.exception_handler(ExpiredSignatureError)
-async def expired_signature_handler(_request: Request, _exc: ExpiredSignatureError):
+@app.exception_handler(jwt.exceptions.ExpiredSignatureError)
+async def expired_signature_handler(_request: Request, _exc: jwt.exceptions.ExpiredSignatureError):
     """Handle expired token errors."""
     return JSONResponse(
         status_code=401,
@@ -36,8 +36,8 @@ async def expired_signature_handler(_request: Request, _exc: ExpiredSignatureErr
     )
 
 
-@app.exception_handler(JWTError)
-async def jwt_error_handler(_request: Request, exc: JWTError):
+@app.exception_handler(jwt.exceptions.PyJWTError)
+async def jwt_error_handler(_request: Request, exc: jwt.exceptions.PyJWTError):
     """Handle generic JWT errors."""
     return JSONResponse(
         status_code=401,
