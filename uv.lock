@@ -86,7 +86,7 @@ wheels = [
 
 [[package]]
 name = "ab-token-validator"
-version = "0.2.3"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ab-dependency" },
@@ -98,14 +98,14 @@ dependencies = [
     { name = "uuid7" },
     { name = "yarl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/82/42/a31f4cf8564c4e5070355d1cc2b21d2652e97b0855ff6c149103870050a9/ab_token_validator-0.2.3.tar.gz", hash = "sha256:4370054823d5448b3fbb430040270b4089db9b0e527fa6f1c69adc077f8ac146", size = 7092, upload-time = "2026-03-08T06:31:22.942Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fa/1c/f017252f3fbae2eaff060eae1a6bf5c11a0571d9b383aa4282ce4af952d9/ab_token_validator-0.3.0.tar.gz", hash = "sha256:b2bac1f05f70eb88f1e73ae68609b6f9703a416d99d29d3d130f720fce1ae914", size = 7832, upload-time = "2026-03-08T07:52:24.214Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/43/a3/6c3a44c6d5cf0e4c666044d13f3b71a301337bf72867b308898d81c3288a/ab_token_validator-0.2.3-py3-none-any.whl", hash = "sha256:073da28f05fce3d80e5d80e9ec5dfd86f567511a9f488d8cb910a530ef7d77ee", size = 7440, upload-time = "2026-03-08T06:31:21.673Z" },
+    { url = "https://files.pythonhosted.org/packages/51/e1/a2c2df3cc8376ecbd2189e8e3360992934d88719c3b9afbd8b2b826e4dbf/ab_token_validator-0.3.0-py3-none-any.whl", hash = "sha256:cad331a36d15432f9dc1648c8abb7a52f59067eb698fa8bd46c6e6ca5ccd0018", size = 8284, upload-time = "2026-03-08T07:52:25.478Z" },
 ]
 
 [[package]]
 name = "ab-token-validator-service"
-version = "0.3.0"
+version = "0.3.1"
 source = { editable = "." }
 dependencies = [
     { name = "ab-logging" },
@@ -131,7 +131,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "ab-logging", specifier = ">=0.1.2,<0.2.0" },
-    { name = "ab-token-validator", specifier = ">=0.2.3,<0.3.0" },
+    { name = "ab-token-validator", specifier = ">=0.3.0,<0.4.0" },
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
     { name = "pydantic", specifier = ">=2.11.7,<3" },
     { name = "uvicorn", specifier = ">=0.35.0,<0.36" },
